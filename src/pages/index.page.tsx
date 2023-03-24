@@ -3,6 +3,7 @@ import * as React from 'react';
 import ButtonLink from '@/components/buttons/ButtonLink';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+<<<<<<< HEAD
 import Typography from '@/components/Typography';
 
 const sandboxComponent = [
@@ -26,11 +27,15 @@ const sandboxPages = [
     url: '/sandbox/landing/',
   },
 ];
+=======
+import Hero from '@/components/Hero';
+>>>>>>> 0d81045 (feat: layout and hero)
 
 export default function HomePage() {
   return (
     <Layout>
       <Seo />
+<<<<<<< HEAD
 
       <main className='layout'>
         <div>
@@ -81,6 +86,10 @@ export default function HomePage() {
           </div>
         </div>
       </main>
+=======
+      <Hero />
+      <Hero />
+>>>>>>> 0d81045 (feat: layout and hero)
     </Layout>
   );
 }
