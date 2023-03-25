@@ -4,6 +4,7 @@ import ButtonLink from '@/components/buttons/ButtonLink';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Typography from '@/components/Typography';
 
 const sandboxComponent = [
@@ -30,11 +31,15 @@ const sandboxPages = [
 =======
 import Hero from '@/components/Hero';
 >>>>>>> 0d81045 (feat: layout and hero)
+=======
+import Hero from '@/components/Hero';
+>>>>>>> 0d810453b5fb4810add43ab5c735ad9fcc3d43c8
 
 export default function HomePage() {
   return (
     <Layout>
       <Seo />
+<<<<<<< HEAD
 <<<<<<< HEAD
 
       <main className='layout'>
@@ -90,6 +95,10 @@ export default function HomePage() {
       <Hero />
       <Hero />
 >>>>>>> 0d81045 (feat: layout and hero)
+=======
+      <Hero />
+      <Hero />
+>>>>>>> 0d810453b5fb4810add43ab5c735ad9fcc3d43c8
     </Layout>
   );
 }
