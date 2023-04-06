@@ -60,6 +60,7 @@ export type DataType = {
   foto_event: string;
   max_donasi: number;
   jumlah_donasi: number;
+  sisa_donasi: number;
   like_count: number;
   expired_donasi: string;
   time_left: string;
@@ -109,6 +110,20 @@ export type EventData = {
     lokasi_tujuan: string;
     user_id: string;
   }>;
+};
+
+export const getMe = async () => {
+  try {
+    const response = await axios.get(`${API_BaseUrl}api/user/me`, {
+      headers:{
+        Authorization: `Bearer ${window.localStorage.getItem("token")}`
+      }
+    })
+    //console.log(response.data);
+    return response.data;
+  } catch (error) {
+    throw new Error('Error in API fetch getMe');
+  }
 };
 
 export const getEventData = async (id?: string) => {
