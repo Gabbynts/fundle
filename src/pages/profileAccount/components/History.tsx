@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
+import OptionModal from '@/components/modal/optionModal';
 import Typography from '@/components/Typography';
 
 import { API_BaseUrl } from '@/constant/env';
@@ -10,6 +12,7 @@ import HistoryCard from '@/pages/profileAccount/components/HistoryCard';
 
 function History() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isDelete, setDelete] = useState(false);
 
   const [historyList, setHistoryList] = useState<HistoryType[]>([]);
 
@@ -58,15 +61,12 @@ function History() {
         `${API_BaseUrl}api/event/${eventId}`,
         config
       );
-
-      // display success message to user
-      alert(response.data.message);
-
-      // update historyList state by filtering out deleted event
+      toast.success(response.data.message);
+      setDelete(false);
       setHistoryList(historyList.filter((history) => history.id !== eventId));
     } catch (error: any) {
-      // display error message to user
-      alert(error.message);
+      setDelete(false);
+      toast.error(error.message);
     }
   };
 
@@ -99,13 +99,15 @@ function History() {
                     title={historyList.judul_event}
                     imgUrl={historyList.foto_event}
                     desc={historyList.deskripsi_event}
+                    handleClick={() => setDelete(true)}
                   />
-                  <button
-                    color='secondary'
-                    onClick={() => handleDeleteEvent(historyList.id)}
-                  >
-                    Delete
-                  </button>
+                  {isDelete && (
+                    <OptionModal
+                      message='Apakah kamu Yakin?'
+                      handleTrue={() => handleDeleteEvent(historyList.id)}
+                      handleFalse={() => setDelete(false)}
+                    />
+                  )}
                 </div>
               ))
             ) : (
